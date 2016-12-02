@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+
+<link rel="stylesheet" href="../css/chocoboStyle.css">
+<script src="../js/jquery-3.0.0.min.js"></script>
+
+
+<body>
+
+<!--Table Header-->
+ <div id="tableHeader">
+     <ul>
+         <li><a>HOME</a></li>
+         <li><a href="../../ChocoboRace/html/chocoboRace.html">RACE NOW</a></li>
+         <li><a href="../../cardsGame/html/cardsGameBattlePage.html">CARD GAME</a></li>
+     </ul>
+ </div>
+
+ <!--button Go and Reset-->
+<div id="button">
+ <input type="button" value="Race!" id="go" onclick="startRace();">
+ <input type="button" value="Reset" id="reset" onclick="reset();">
+</div>
+
+ <!--Race track and Chocobo images-->
+ <div id="raceTrack">
+     <img src="../images/Chocobo_Knight.png" alt="Chocobo Knight" class="Chocobo" id="ChocoboKnight">
+     <img src="../images/Chocobo_Dancer.png" alt="Chocobo Dancer" class="Chocobo" id="ChocoboDancer">
+ </div>
+
+ <!--Results board-->
+<div id="resultBoard">
+    <h2>RESULTS</h2>
+    <div id="Chocobo1" class="chocoboResult">Chocobo 1<span id="span1"></span></div>
+    <div id="Chocobo2" class="chocoboResult">Chocobo 2<span id="span2"></span></div>
+</div>
+
+
+<p id="testing1"></p>
+
+
+<script src="../js/ChocoboScriptJQuery.js"></script>
+
+
+
+</body>
+
+
+
+<!--<input type="button" value="click here" onclick="move();">-->
+
+
+
+
+</html>

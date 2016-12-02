@@ -1,0 +1,123 @@
+
+
+/*-----------------
+styling table header
+------------------*/
+#tableHeader {
+    background-color: #080808;
+    position: relative;
+    height: 60px;
+    width: auto;
+    color: #ffffff;
+    margin-top: 30px;
+}
+
+#tableHeader li {
+    list-style-type: none; /*to get ride of the dotted list*/
+    float: left; /*the float property used to wrap text around images*/
+    display: block;
+    width: 100px;
+    line-height: 55px;
+    font-size: 15px;
+}
+
+/*-----------------
+styling the button
+------------------*/
+input[type="button"] {
+    background: lightgreen;
+    padding: 15px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    margin: 30px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input#reset {
+    background: orange;
+}
+
+#button {
+    text-align: center;
+}
+
+
+/*-----------------
+styling result board
+------------------*/
+#resultBoard {
+    width: 90%;
+    margin: 200px auto 0;
+    /*text-align: center;*/
+    background: #f5f5f5;
+    height: 220px;
+}
+
+#resultBoard h2 {
+    color: black;
+    border-bottom: solid;
+    text-align: center;
+}
+
+#Chocobo1 {
+    background-color: #000000;
+    height: 100px;
+    width: 40%;
+    margin-left: 150px;
+}
+
+#Chocobo2 {
+    background-color: #000000;
+    height: 100px;
+    width: 40%;
+    margin-left: 20px;
+}
+
+.chocoboResult {
+    float: left;
+    text-align: center;
+    color: ghostwhite;
+    width: 50%;
+    font-size: 25px;
+}
+
+.chocoboResult span {
+    display: block;
+}
+
+#span1 {
+    color: #f5f5f5;
+}
+
+#span2 {
+    color: #f5f5f5;
+}
+
+
+/*-----------------
+styling Race track
+------------------*/
+#raceTrack {
+    background: url('../images/road.jpg');
+    height: 330px;
+    border-right: dashed 10px #ffffff;
+    box-sizing: border-box;
+}
+
+
+/*-----------------
+styling Chocobo
+------------------*/
+.Chocobo {
+    display: block;
+    position: relative;
+    height: 150px;
+    /*left: 1740px;*/
+}
+
+#ChocoboDancer {
+    top: 25px;
+}
+
