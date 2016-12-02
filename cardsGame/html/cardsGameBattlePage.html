@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<link rel="stylesheet" href="../css/cardsGameStyle.css">
+
+<body>
+
+
+
+<!--tableHeader-->
+<div id="tableHeader">
+    <ul>
+        <li><a href="">HOME</a></li>
+        <li><a href="../../ChocoboRace/html/chocoboRace.html">RACE NOW</a></li>
+        <li><a href="../html/cardsGameBattlePage.html">CARD GAME</a></li>
+    </ul>
+</div>
+
+
+
+<!--list of cards-->
+<div id="cardsSelector">
+    <h1>Select A Card</h1>
+    <form name="cardLists" onclick="activate()">
+        <input type="radio" name="cardName" value="DarkMagician">Dark Magician<br>
+        <input type="radio" name="cardName" value="White-Eyes">White Eyes<br>
+        <input type="radio" name="cardName" value="Junk Archer">Junk Archer<br>
+        <input type="radio" name="cardName" value="SwordMaster">SwordMaster<br>
+    </form>
+</div>
+
+<button id="selectorButton" value="BATTLE" onclick="attack();">BATTLE</button>
+
+
+<!--USER 's HP & MP-->
+<div id="userCardParameter">
+    <table>
+        <tr><td id="userInput"></td></tr>
+    </table>
+    <table id="userParameter">
+        <tr>
+            <td class="userMPHP" id="userHP">HP</td>
+            <td class="userMPHPResult" id="userHPResult">-</td>
+        </tr>
+        <tr>
+            <td class="userMPHP" id="userMP">MP</td>
+            <td class="userMPHPResult" id="userMPResult">-</td></tr>
+    </table>
+</div>
+
+
+<!--Random's HP & MP-->
+<div id="randomCardParameter">
+    <table>
+        <tr><td id="randomInput"></td></tr>
+    </table>
+    <table id="randomParameter">
+        <tr>
+            <td class="randomMPHP" id="randomHP">HP</td>
+            <td class="randomMPHPResult" id="randomHPResult">-</td>
+        </tr>
+        <tr>
+            <td class="randomMPHP" id="randomMP">MP</td>
+            <td class="randomMPHPResult" id="randomMPResult">-</td></tr>
+    </table>
+</div>
+
+<!--cards & template adjustment-->
+<div id="userCardTemplate"></div>
+<div id="randomTemplate"></div>
+
+<img id="cardSelected" src="../images/cardBackSide.jpg">
+<img id="randomCardSelected" src="../images/cardBackSide.jpg">
+
+
+<!--communication box-->
+<div id="commBox">
+    <p id="message"></p>
+</div>
+
+
+
+
+
+<!--Attack buttons-->
+<input id="userButton" type="button" value="" onclick="">
+<input id="randomButton" type="button" value="" onclick="">
+
+
+
+
+
+
+<!--JavaScript-->
+<script src="../js/cardGameScript.js"></script>
+
+
+</body>
+</html>
