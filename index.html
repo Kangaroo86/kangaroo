@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>IO STOCK CHAT</title>
+</head>
+
+<style>
+    #chatScreen {
+        height: 500px;
+        width: 300px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        position: relative;
+    }
+
+    #messagesTyped {
+        width: 300px;
+        height: 100px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+        position: relative;
+    }
+
+    #sendButton {
+        width: 160px;
+        height: 40px;
+        padding: 4px 4px;
+        font-family: sans-serif;
+        letter-spacing: .1em;
+        font-size: 1.0em;
+        background: -webkit-linear-gradient(top, #ff5138, #d67600);
+        box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+        position: absolute;
+        top: 565px;
+    }
+
+    #userlog {
+        height: 550px;
+        width: 155px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        position: relative;
+        right: -305px;
+        top: -605px;
+    }
+
+    #nickNameWrap {
+        width: 400px;
+        height: 120px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+        position: relative;
+        right: -550px;
+        top: -1000px;
+    }
+
+    /*#messageArea {*/
+        /*display: none;*/
+    /*}*/
+
+    /*#nickNameWrap {*/
+        /*display: none;*/
+    /*}*/
+
+</style>
+
+
+
+<body>
+
+
+
+<div class="container">
+
+    <div id="contentWrap">
+        <div id="messageArea">
+        <!--Message log & Text log-->
+        <div id="chatScreen"></div>
+
+
+        <form id="messageForm">
+            <textarea id="messagesTyped">Type here</textarea>
+            <input type="submit" value="SEND" id="sendButton">
+        </form>
+
+
+        <!--Uer log list-->
+        <div id="userlog"></div>
+        </div>
+    </div>
+
+
+    <!--NickName Wrap-->
+    <div id="nickNameWrap">
+        <div id="userMessageArea">
+
+        <p>INPUT USERNAME:</p>
+        <p id="nickError"></p>
+        <form id="nicknameForm">
+            <input size="35" id="nickName" />
+            <input type="submit" value="LOGIN" id="sendNickname" />
+        </form>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<script>
+
+    jQuery(function($) {
+    //        var socket = io.connect(),
+//         var socket     = io.connect(window.location.origin),
+//        $messageForm    = document.getElementById('messageForm'),
+//        $messagesTyped  = document.getElementById('messagesTyped'),
+//        $chatScreen     = document.getElementById('chatScreen'),
+//        $sendButton     = document.getElementById('sendButton'),
+//        messages        = [];
+
+         var socket     = io.connect(),
+        $messageForm    = $('#messageForm'),
+        $messagesTyped  = $('#messagesTyped'),
+        $chatScreen     = $('#chatScreen'),
+        $contentWrap    = $('#contentWrap'),
+        $users          = $('#userlog'),
+
+        $sendNickname   = $('#nickName'),
+        $nicknameForm   = $('#nicknameForm'),
+        $nickNameWrap   = $('#nickNameWrap');
+
+
+        //Send message to server-side
+        $messageForm.submit(function(e) {
+            e.preventDefault();
+            socket.emit('send message', $messagesTyped.val());
+            $messagesTyped.val('');
+        });
+
+        //display message from the server-side
+        socket.on('new message', function(data) {
+            $chatScreen.append( data.user + ': ' + data.msg + "<br/>");
+        });
+
+        //submit nickName to server
+        $nicknameForm.submit(function(e) {
+            e.preventDefault();
+            socket.emit('submit nickName', $sendNickname.val(), function(data) {
+                if(data) {
+                    $nickNameWrap.hide();
+                    $contentWrap.show();
+                }
+            });
+            $sendNickname.val('');
+        });
+
+        //receive username data from server
+        socket.on('get users', function(data) {
+           var html = '';
+            for(i=0; i < data.length; i++) {
+                html += '<li>' + data[i] + '</li>';
+            }
+            $users.html(html);
+        });
+
+    });
+
+
+//        var testing = $('#chatScreen');
+//        var testing = document.getElementById('chatScreen');
+//
+//    testing.html("hello there");
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
